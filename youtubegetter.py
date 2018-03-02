@@ -20,7 +20,7 @@ def fetch_videos(api_key, channel_id, pageToken=None):
 
     for video in page_data["items"]:
         id = video["snippet"]["resourceId"]["videoId"]
-        videos[id] = video["snippet"]["title"]
+        videos[id] = [video["snippet"]["title"],video["snippet"]["publishedAt"]]
 
         if "pretty_name" not in channels[channel_id]:
             channels[channel_id]["pretty_name"] = video["snippet"]["channelTitle"]
