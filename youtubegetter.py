@@ -32,14 +32,15 @@ def fetch_videos(api_key, channel_id, pageToken=None):
 
     return videos
 
+if __name__ == '__main__':
 
-for channel in channels.keys():
-    current_channel_videos = fetch_videos(yt_api_key, channel, None)
+    for channel in channels.keys():
+        current_channel_videos = fetch_videos(yt_api_key, channel, None)
 
 
 
-for video in current_channel_videos:
-    print(current_channel_videos[video][0]["title of video"],"publsihed at " + current_channel_videos[video][1]["Time published"])
+    for video in current_channel_videos:
+        print(current_channel_videos[video][0]["title of video"],"publsihed at " + current_channel_videos[video][1]["Time published"])
 
 #ToDo need to check if any new videos are in the current channel videos and add them to the CSV
 

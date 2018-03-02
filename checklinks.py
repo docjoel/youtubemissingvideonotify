@@ -41,8 +41,7 @@ def checkLink(filename):
                 pass
     print("Exists",existsN)
     print("NonExist",nonexist-1)
-link = input("name of file?")
-checkLink(link)
+
 
 
 
