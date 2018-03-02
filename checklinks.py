@@ -3,15 +3,18 @@ import csv
 
 # opens the video
 
-def checkLink():
-    link = input("name of file?")
-    # Open primary CSV and load in video list
-    # sets a variable to get totoal videos
-    with open(link, newline='') as f:
+def countRows(filename):
+    with open(filename, newline='') as f:
         reader = csv.reader(f)
         row_count = sum(1 for row in reader)
-        print(row_count)
-    with open(link, newline='') as f:
+        return row_count
+
+def checkLink(filename):
+
+    # Open primary CSV and load in video list
+    # sets a variable to get totoal videos
+    row_count = countRows(filename)
+    with open(filename, newline='') as f:
         reader = csv.reader(f)
         existsN=0
         nonexist=0
@@ -38,8 +41,8 @@ def checkLink():
                 pass
     print("Exists",existsN)
     print("NonExist",nonexist-1)
-
-checkLink()
+link = input("name of file?")
+checkLink(link)
 
 
 

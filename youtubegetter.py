@@ -1,7 +1,7 @@
 # Example Channel: Kenz - Unmedicated & Dysfunctional
 import requests
 import json
-yt_api_key = "AIzaSyCZF8zzud9yqzDvcrMGbzfBQpJ195HUibA" # YouTube API key goes here
+yt_api_key =  # YouTube API key goes here
 channels = {}
 channels["UUVykYhKkOLuIKVr7F0b1npg"] = {"email": "unmedicateddysfunctional@gmail.com"}
 
