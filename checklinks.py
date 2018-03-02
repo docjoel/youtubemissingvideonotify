@@ -28,7 +28,7 @@ def checkLink():
                     nonexist+=1
 
                 #Check if there is a contradiction
-                if (q.text ==" Not Found") and (" Available" in row[3]):
+                if (q.text =="Not Found") and ("Available" in row[3]):
                     print("*"*9)
                     print(row[0],row[3],q.text,"Contradiction Detected, check link")
                     print("*"*9)
