@@ -9,7 +9,15 @@ def countRows(filename):
         row_count = sum(1 for row in reader)
         return row_count
 
-def checkLink(filename):
+
+
+
+def checkifavalible(youtubelink):
+    q = requests.get("http://www.youtube.com/oembed?url={}".format(youtubelink))
+    return q.text != "Not Found"
+
+
+def checkLinks(filename):
 
     # Open primary CSV and load in video list
     # sets a variable to get totoal videos
@@ -21,9 +29,8 @@ def checkLink(filename):
         i = 1
         for row in reader:
             try:
-                x = row[2]
-                q = requests.get("http://www.youtube.com/oembed?url={}".format(x)) #get the links status
-                if q.text != "Not Found":
+                youtubeLink = row[2]
+                if checkifavalible(youtubelink=youtubeLink):
                     print(row[0],row[1],"Exists")
                     existsN +=1
                 else:
@@ -33,7 +40,7 @@ def checkLink(filename):
                 #Check if there is a contradiction
                 if (q.text =="Not Found") and ("Available" in row[3]):
                     print("*"*9)
-                    print(row[0],row[3],q.text,"Contradiction Detected, check link")
+                    print(row[0],row[3],checkifavalible(youtubelink=youtubeLink),"Contradiction Detected, check link")
                     print("*"*9)
                 print("\r",i/row_count * 100)
                 i+=1
