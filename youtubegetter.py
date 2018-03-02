@@ -1,9 +1,10 @@
 # Example Channel: Kenz - Unmedicated & Dysfunctional
 import requests
 import json
-yt_api_key =  # YouTube API key goes here
+from youtubemissingvideonotify.keys import key
+yt_api_key = key # YouTube API key goes here
 channels = {}
-channels["UUVykYhKkOLuIKVr7F0b1npg"] = {"email": "unmedicateddysfunctional@gmail.com"}
+channels["UUVykYhKkOLuIKVr7F0b1npg"] = {"email": "test@gmail.com"}
 
 
 
