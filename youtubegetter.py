@@ -20,7 +20,7 @@ def fetch_videos(api_key, channel_id, pageToken=None):
 
     for video in page_data["items"]:
         id = video["snippet"]["resourceId"]["videoId"]
-        videos[id] = [video["snippet"]["title"],video["snippet"]["publishedAt"]]
+        videos[id] = [{"title of video":video["snippet"]["title"]},{"Time published":video["snippet"]["publishedAt"]}]
 
         if "pretty_name" not in channels[channel_id]:
             channels[channel_id]["pretty_name"] = video["snippet"]["channelTitle"]
@@ -34,7 +34,9 @@ def fetch_videos(api_key, channel_id, pageToken=None):
 
 for channel in channels.keys():
     current_channel_videos = fetch_videos(yt_api_key, channel, None)
-    print(current_channel_videos)
+
+print(current_channel_videos)
+
 
 #ToDo need to check if any new videos are in the current channel videos and add them to the CSV
 
