@@ -9,7 +9,7 @@ channels = {}
 channels["UUVykYhKkOLuIKVr7F0b1npg"] = {"email": "test@gmail.com"}
 
 
-
+#UUVykYhKkOLuIKVr7F0b1npg
 
 # Fetch the latest videos on a channel using the YouTube API.
 def fetch_videos(api_key, channel_id, pageToken=None):
@@ -20,7 +20,7 @@ def fetch_videos(api_key, channel_id, pageToken=None):
     r = requests.get(base_url)
     page_data = json.loads(r.text)
     videos = {}
-
+    print(page_data)
     for video in page_data["items"]:
         id = video["snippet"]["resourceId"]["videoId"]
         videos[id] = [{"title of video":video["snippet"]["title"]},{"Time published":video["snippet"]["publishedAt"]}]
