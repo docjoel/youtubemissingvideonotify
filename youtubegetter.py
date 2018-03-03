@@ -2,6 +2,8 @@
 import requests
 import json
 from youtubemissingvideonotify.keys import key
+import csv
+import arrow
 yt_api_key = key # YouTube API key goes here
 channels = {}
 channels["UUVykYhKkOLuIKVr7F0b1npg"] = {"email": "test@gmail.com"}
@@ -32,15 +34,31 @@ def fetch_videos(api_key, channel_id, pageToken=None):
 
     return videos
 
+
+
+def makeCSV(channelVideos):
+    with open("Video_List.csv","w") as outfile:
+        columnTitleRow = "video id,Title,date published\n"
+        outfile.write(columnTitleRow)
+        for video in channelVideos:
+            try:
+                outfile.write("{0},{1},{2}\n".format(video,str(channelVideos[video][0]["title of video"]).replace(",","")
+                                                     ,arrow.get(
+                        channelVideos[video][1]["Time published"])).format("MM-DD-YY"))
+            except TypeError:
+                print("type error")
+
+
+
+
 if __name__ == '__main__':
 
     for channel in channels.keys():
         current_channel_videos = fetch_videos(yt_api_key, channel, None)
 
-
-
     for video in current_channel_videos:
-        print(current_channel_videos[video][0]["title of video"],"publsihed at " + current_channel_videos[video][1]["Time published"])
+        print(video,current_channel_videos[video][0]["title of video"],"publsihed at " + arrow.get(current_channel_videos[video][1]["Time published"]).format("MM-DD-YY"))
+    makeCSV(current_channel_videos)
 
 #ToDo need to check if any new videos are in the current channel videos and add them to the CSV
 

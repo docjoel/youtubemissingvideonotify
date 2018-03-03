@@ -13,7 +13,7 @@ def countRows(filename):
 
 
 def checkifavalible(youtubelink):
-    q = requests.get("http://www.youtube.com/oembed?url={}".format(youtubelink))
+    q = requests.get("http://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={}".format(youtubelink))
     return q.text != "Not Found"
 
 
@@ -29,7 +29,7 @@ def checkLinks(filename):
         i = 1
         for row in reader:
             try:
-                youtubeLink = row[2]
+                youtubeLink = row[0]
                 if checkifavalible(youtubelink=youtubeLink):
                     print(row[0],row[1],"Exists")
                     existsN +=1
@@ -38,7 +38,7 @@ def checkLinks(filename):
                     nonexist+=1
 
                 #Check if there is a contradiction
-                if (q.text =="Not Found") and ("Available" in row[3]):
+                if not checkifavalible() and ("Available" in row[3]):
                     print("*"*9)
                     print(row[0],row[3],checkifavalible(youtubelink=youtubeLink),"Contradiction Detected, check link")
                     print("*"*9)

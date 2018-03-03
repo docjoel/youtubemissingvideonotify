@@ -12,5 +12,6 @@ with open("kenzlinks.txt","r") as infile:
         for name in pair:
             csv.write(name + ",")
         csv.write("\n")
+    csv.close()
 
 
