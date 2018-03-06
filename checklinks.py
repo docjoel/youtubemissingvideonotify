@@ -10,8 +10,6 @@ def countRows(filename):
         return row_count
 
 
-
-
 def checkifavalible(youtubelink):
     q = requests.get("http://www.youtube.com/oembed?url=https://www.youtube.com/watch?v={}".format(youtubelink))
     return q.text != "Not Found"
