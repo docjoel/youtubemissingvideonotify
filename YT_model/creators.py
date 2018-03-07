@@ -1,5 +1,5 @@
 from youtubemissingvideonotify import keys
-from youtubemissingvideonotify.channel_models import checklinks, youtubegetter
+from youtubemissingvideonotify.YT_model import checklinks, youtubegetter
 
 #### Setup
 channel_id = input("Whats your channel playlist ID?")
