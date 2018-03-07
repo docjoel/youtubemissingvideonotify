@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["localhost"]
 # Application definition
 
 INSTALLED_APPS = [
-    'YT_model.apps.YtModelConfig',
+    'youtubemissingvideonotify.YT_model.apps.YtModelConfig',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
