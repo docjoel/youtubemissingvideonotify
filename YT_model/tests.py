@@ -20,4 +20,10 @@ class ChannelModelTest(TestCase):
         self.assertEqual(self.channel.number_of_old_videos,297)
 
 
+    def test_missing(self):
+        self.channel.update_video_count(280)
+        self.assertEqual(self.channel.video_missing,True)
+
+
+
 
