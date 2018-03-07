@@ -4,4 +4,5 @@ from .models import *
 
 
 class ChannelTest(TestCase):
-    channel = Channel()
+    channel = Channel("UUVykYhKkOLuIKVr7F0b1npg","Unmedicated and Dysfunctional",297)
+
