@@ -13,3 +13,11 @@ class ChannelModelTest(TestCase):
         self.assertEqual(self.channel.channelName, "Unmedicated and Dysfunctional")
 
 
+    def test_addVideo(self):
+        self.assertEqual(self.channel.number_of_videos,297)
+        self.channel.update_video_count(298)
+        self.assertEqual(self.channel.number_of_videos,298)
+        self.assertEqual(self.channel.number_of_old_videos,297)
+
+
+
