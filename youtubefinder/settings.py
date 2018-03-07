@@ -38,7 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'YT_model.apps.YtModelConfig',
+    'rest_framework.authtoken',
+    'huey.contrib.djhuey',
+    'django_extensions',
 
 ]
 
