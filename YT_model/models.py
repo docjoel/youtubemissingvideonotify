@@ -16,7 +16,7 @@ class You_TubeChannel(models.Model):
     number_of_videos = models.IntegerField()
     number_of_old_videos = models.IntegerField()
     def __repr__(self):
-        return str(self.identifier)
+        return str(self.channelName)
     def to_dictionary(self):
         return {"channelID": You_TubeChannel.channelID, "Channel Name": You_TubeChannel.channelName,
                 "Number of Videos":You_TubeChannel.number_of_videos}
@@ -39,6 +39,6 @@ class Video(models.Model):
     existed = models.BooleanField()
     last_found = models.DateTimeField()
     def __repr__(self):
-        return str(self.identifier)
+        return str(self.name)
     def to_dictionary(self):
         return {"Video ID":Video.videoID,"Name":Video.name,"published date":Video.published_date,"exists":Video.existed}
