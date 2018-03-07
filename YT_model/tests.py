@@ -10,6 +10,6 @@ class ChannelModelTest(TestCase):
 
     def test_build(self):
 
-        self.assertIs(self.channel.channelName, "Unmedicated and Dysfunctional")
+        self.assertEqual(self.channel.channelName, "Unmedicated and Dysfunctional")
 
 
