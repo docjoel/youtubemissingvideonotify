@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'YT_model.apps.YtModelConfig',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'YT_model.apps.YtModelConfig',
 
 ]
 
