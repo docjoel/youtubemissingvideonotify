@@ -23,7 +23,7 @@ class You_TubeChannel(models.Model):
     def video_missing(self):
         #returns True if the number of old videos is greater than the current number of videos
         print()
-        return (int(You_TubeChannel.number_of_old_videos) > int(You_TubeChannel.number_of_videos))
+        return (You_TubeChannel.number_of_old_videos > You_TubeChannel.number_of_videos)
     def update_video_count(self,new_video_count):
         self.number_of_old_videos = self.number_of_videos
         self.number_of_videos = new_video_count
