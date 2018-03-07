@@ -4,7 +4,6 @@ from .models import *
 class ChannelModelTest(TestCase):
 
 
-
     channel = You_TubeChannel("UUVykYhKkOLuIKVr7F0b1npg", "Unmedicated and Dysfunctional", 297, 0)
 
 

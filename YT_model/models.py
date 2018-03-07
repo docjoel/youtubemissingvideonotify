@@ -20,6 +20,10 @@ class You_TubeChannel(models.Model):
     def to_dictionary(self):
         return {"channelID": You_TubeChannel.channelID, "Channel Name": You_TubeChannel.channelName,
                 "Number of Videos":You_TubeChannel.number_of_videos}
+    def video_missing(self):
+        #returns True if the number of old videos is greater than the current number of videos
+        return (You_TubeChannel.number_of_old_videos > You_TubeChannel.number_of_videos)
+
 
 
 
