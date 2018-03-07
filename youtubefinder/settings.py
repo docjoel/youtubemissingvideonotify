@@ -25,19 +25,21 @@ SECRET_KEY = '=o^7dp9%(4xj=swq3l0$@eyj+t%b3iif1yvj7*fe#ba!-d_vaa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'channel_models.apps.ChannelModelConfig'
+    'YT_model.apps.YtModelConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -76,8 +78,12 @@ WSGI_APPLICATION = 'youtubefinder.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydatabase',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': "postgres",
+        'PORT': os.environ["postgres"],
     }
 }
 
