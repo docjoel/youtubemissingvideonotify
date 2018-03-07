@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import You_TubeChannel
+from YT_model.models import You_TubeChannel
 # Create your tests here.
 
 class ChannelModelTest(TestCase):
