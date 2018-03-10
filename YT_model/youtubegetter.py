@@ -22,7 +22,6 @@ def fetch_videos(api_key, channel_id, pageToken=None):
     r = requests.get(base_url)
     page_data = json.loads(r.text)
     videos = {}
-    print(page_data)
     for video in page_data["items"]:
         id = video["snippet"]["resourceId"]["videoId"]
         videos[id] = [{"title of video":video["snippet"]["title"]},{"Time published":video["snippet"]["publishedAt"]},
@@ -40,7 +39,7 @@ def fetch_videos(api_key, channel_id, pageToken=None):
 def fetch_channel(api_key, channel_id, pageToken=None):
 
 
-    base_url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,statistics&id=" + channel_id + "&key=" + api_key
+    base_url = "https://www.googleapis.com/youtube/v3/channels?part=snippet,contentDetails,statistics&id=" + channel_id + "&key=" + api_key
 
     if pageToken is not None: base_url = base_url + "&pageToken=" + pageToken
 
@@ -48,9 +47,11 @@ def fetch_channel(api_key, channel_id, pageToken=None):
     page_data = json.loads(r.text)
     channel_to_get = page_data["items"]
     for item in channel_to_get:
-        channel_thing = {"Title":item["snippet"]["title"],"info":item["statistics"],"Channel Id":channel_id}
+        channel_thing = {"Title": item["snippet"]["title"],"published": item["snippet"]["publishedAt"],
+                         "info": item["statistics"],"Channel Id": channel_id,
+                         "Playlist Id": item["contentDetails"]["relatedPlaylists"]['uploads']}
 
-    return  channel_thing
+    return channel_thing
 
 
 
@@ -71,7 +72,7 @@ def makeCSV(channelVideos):
 
 
 if __name__ == '__main__':
-    print(fetch_channel(yt_api_key,"UC_x5XG1OV2P6uZZ5FSM9Ttw"))
+    print(fetch_channel(yt_api_key,"UCVykYhKkOLuIKVr7F0b1npg"))
 
     for channel in channels.keys():
         current_channel_videos = fetch_videos(yt_api_key, channel, None)
