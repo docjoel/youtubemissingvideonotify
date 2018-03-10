@@ -29,10 +29,6 @@ class You_TubeChannel(models.Model):
         self.number_of_videos = new_video_count
 
 
-
-
-
-
 class Video(models.Model):
     """
     represents a movie

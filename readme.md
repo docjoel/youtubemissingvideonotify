@@ -1,6 +1,7 @@
 # Youtube Video Checker 9000
 Written by Joel Schooler
 
+
 # Status
 Beta
 Able to create a CSV of all current videos with dates published
@@ -34,14 +35,15 @@ To run make sure this program is in the same
 python runYouTubeFinder.py
 ```
 
-# Channel_Models
-Represents two aspects
+# YT_models
 
-### Channel
-the youtube channel
+### YT_channel
+The youtube channel
 
 ### Video
-the youtube video
+Name speaks
+
+
 
 
 
