@@ -48,7 +48,7 @@ def fetch_channel(api_key, channel_id, pageToken=None):
     channel_to_get = page_data["items"]
     for item in channel_to_get:
         channel_thing = {"Title": item["snippet"]["title"],"published": item["snippet"]["publishedAt"],
-                         "info": item["statistics"],"Channel Id": channel_id,
+                         "Video Count": item["statistics"]['videoCount'],"Channel Id": channel_id,
                          "Playlist Id": item["contentDetails"]["relatedPlaylists"]['uploads']}
 
     return channel_thing
